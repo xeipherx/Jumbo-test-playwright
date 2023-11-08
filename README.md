@@ -15,7 +15,7 @@ then go to the folder
 make sure youre in the folder
 
 
-```npx playwright test
+```npx playwright test```
 
 
 ## Things to improve on
