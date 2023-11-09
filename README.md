@@ -23,3 +23,5 @@ make sure youre in the folder
 * Add logging
 * Add more comments
 * spread the test categories a bit
+* Make functions more dynamic allow adding parameters for better reusability
+* Add more focus on API/GRAPHQL testing

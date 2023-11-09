@@ -1,5 +1,10 @@
-import { JumboCookiePage } from './pages/jumbo.cookie.page';
+import { JumboCookiePage } from '../pages/jumbo.cookie.page';
 import { expect, request } from "@playwright/test";
+
+export let testUsername = 'lowoce1785@rdluxe.com';
+export let testPassword = 'testtest1';
+export let testName = 'test';
+
 export async function Rejectcookies(page) {
     // Go to the starting url before each test.
     await page.goto('https://www.jumbo.com/')

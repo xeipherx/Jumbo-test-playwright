@@ -1,16 +1,19 @@
 //home.page.ts
 import { expect, Locator, Page } from '@playwright/test';
+import { testName } from '../helper/helpers';
+
 export class JumboHeaderPage {
-  readonly page: Page;
-  readonly loginButton: Locator;
+  page: Page;
+  loginButton: Locator;
   basketCount: Locator
+  signedInUsernameLocator: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    this.loginButton = page.locator("[data-label='Inloggen']");
   }
 
   async clickOnLogin() {
+    this.loginButton = this.page.locator("[data-label='Inloggen']");
     await this.loginButton.click();
   }
 
@@ -22,5 +25,9 @@ export class JumboHeaderPage {
   async CheckBasketCount(){
     this.basketCount = await this.page.getByTestId('basket-item-total').first();
     await expect(this.basketCount).toHaveText('1');
+  }
+
+  async CheckNameAccount(){
+    await expect(this.page.locator('.user-menu')).toHaveText(testName);
   }
 }

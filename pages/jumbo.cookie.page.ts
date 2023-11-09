@@ -1,5 +1,5 @@
-//home.page.ts
-import { expect, Locator, Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
+
 export class JumboCookiePage {
   readonly page: Page;
   readonly rejectCookiesButton: Locator;

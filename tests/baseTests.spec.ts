@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { JumboHeaderPage } from '../pages/jumbo.header.page';
-import { Rejectcookies } from '../helpers'
+import { Rejectcookies } from '../helper/helpers'
 import { JumboDetailPage } from '../pages/jumbo.detail.page';
-import { GraphQLService } from '../helpers';
+import { GraphQLService } from '../helper/helpers';
+import { JumboLoginPage } from '../pages/jumbo.login.page';
+
 
 test('Check headers navigation', async ({ page }) => {
   await Rejectcookies(page);
@@ -13,9 +15,12 @@ test('Check headers navigation', async ({ page }) => {
 
 test('Login jumbo account test', async ({ page }) => {
   await Rejectcookies(page);
-  const jumboHeaderPage = new JumboHeaderPage(page);
+  var jumboHeaderPage = new JumboHeaderPage(page);
   await jumboHeaderPage.clickOnLogin();
-  await page.waitForTimeout(10000);
+  var jumboLoginPage = new JumboLoginPage(page);
+  await jumboLoginPage.EnterLoginDetails();
+  await jumboLoginPage.ClickLogin();
+  await jumboHeaderPage.CheckNameAccount();
 });
 
 test('Search for product pindakaas and add it to the basket and check basket count',async ({ page }) => {
@@ -28,11 +33,13 @@ test('Search for product pindakaas and add it to the basket and check basket cou
   await expect(page).toHaveURL(/producten/);
   await jumboDetailPage.AddItemToBasket();
   await jumboHeaderPage.CheckBasketCount();
-  await page.waitForTimeout(10000);
 });
 
-test('Add to basket test GRAPHQL',async ({ page }) => {
-  await Rejectcookies(page);
-  var helper = new GraphQLService();
-  await helper.GetBasket();
+
+test.describe.skip('skip cus wip', () =>{
+  test('Add to basket test GRAPHQL',async ({ page }) => {
+    await Rejectcookies(page);
+    var helper = new GraphQLService();
+    await helper.GetBasket();
+  })
 });

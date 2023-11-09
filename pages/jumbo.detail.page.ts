@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { resolve } from 'path';
+
 export class JumboDetailPage {
     readonly page: Page;
     readonly productList: Locator;
