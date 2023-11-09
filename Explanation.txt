@@ -1,0 +1,16 @@
+In this file I will explain my thought process on designing this project.
+
+As for why playwright, I decided to use this challenge to try something new I've seen trending in the Test automation world.
+And wanted to see how easy it would be to pick up and get a feel for it. 
+
+I want to keep make the code i write as reusable as possible therefore I decided to go with the page object model design pattern
+this allows me to reuse the code in several test without having to write it again.
+Also I made all the test indepedant from eachother to make sure we can use the paralization of playwright to its full potential.
+And another thing I would like to do is to make most variables based on a config/resource file or helper and then load it from there.
+But unfortunately I didn;t manage to implement this under the current time constraints.
+
+As for what I'd like to do more, is to have a bigger focus on api/graphql testing. Id rather focus more on the integration level
+and minimize the front end testing to the critical paths only. 
+
+As for the hours I have worked I have spend 6 hours on this in rough estimates.
+
